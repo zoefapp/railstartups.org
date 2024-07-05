@@ -1,23 +1,23 @@
 ---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+
 interface Props {
-	title: string;
-	body: string;
-	href: string;
+	startup: CollectionEntry<"startups">;	
 }
 
-const { href, title, body } = Astro.props;
+let { startup } = Astro.props;
 ---
 
 <li class="link-card">
-	<a href={href}>
 		<h2>
-			{title}
-			<span>&rarr;</span>
+			{startup.data.companyName}
 		</h2>
 		<p>
-			{body}
+			{startup.data.country}
 		</p>
-	</a>
+		<Image src={startup.data.logo} alt={startup.data.companyName}  width="100" height="100" />
 </li>
 <style>
 	.link-card {
