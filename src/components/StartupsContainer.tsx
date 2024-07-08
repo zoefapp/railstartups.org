@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { LoaderCircle } from "lucide-react";
+import HeroLogo from "../../src/assets/hero-logo.webp"
 // Store
 import { setStartups, $startups, $searchString, $selectedCategory } from "../store/startups";
 import { useStore } from "@nanostores/react";
@@ -8,7 +9,6 @@ import StartupsFilters from "./StartupsFilters";
 import StartupsSearch from "./StartupsSearch";
 import StartupCard from "./StartupCard";
 import { getCollection } from "astro:content";
-
 const StartupsContainer = () => {
     const startups = useStore($startups);
     const searchString = useStore($searchString);
@@ -37,6 +37,7 @@ const StartupsContainer = () => {
 
     return (
         <section>
+            <img src={HeroLogo.src} alt="Logo" className="size-72 shrink-0 mx-auto" />
             <h1 className="text-4xl font-bold tracking-tighter text-center my-4">Rail Startups</h1>
             <p className="text-center text-pretty text-sm text-slate-800">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores, inventore.</p>
             <div className="border-b border-teal-900/20 mx-auto w-2/3 my-6"></div>
