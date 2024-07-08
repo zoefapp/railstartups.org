@@ -2,7 +2,8 @@ import type { CollectionEntry } from "astro:content";
 import { atom } from "nanostores";
 
 // Types
-type Data = CollectionEntry<"startups">["data"][];
+export type Data = CollectionEntry<"startups">["data"][];
+export type AllCategories = CollectionEntry<"startups">["data"]["categories"];
 type Category = CollectionEntry<"startups">["data"]["categories"][number];
 
 // Startups Collection State

@@ -1,8 +1,6 @@
-import { useStore } from "@nanostores/react";
-import { setSearchString, $searchString } from "../store/startups";
+import { setSearchString } from "../store/startups";
 import { Search } from "lucide-react";
 const StartupsSearch = () => {
-    const searchString = useStore($searchString);
 
     const onChange = (e: any) => {
         setSearchString(e.target.value);

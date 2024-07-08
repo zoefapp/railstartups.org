@@ -1,31 +1,21 @@
-import { useEffect } from "react";
 import { LoaderCircle } from "lucide-react";
-import HeroLogo from "../../src/assets/hero-logo.webp"
+import HeroLogo from "../../src/assets/hero-logo.webp";
 // Store
-import { setStartups, $startups, $searchString, $selectedCategory } from "../store/startups";
+import { $searchString, $selectedCategory, type AllCategories, type Data } from "../store/startups";
 import { useStore } from "@nanostores/react";
 // Components
 import StartupsFilters from "./StartupsFilters";
 import StartupsSearch from "./StartupsSearch";
 import StartupCard from "./StartupCard";
-import { getCollection } from "astro:content";
-const StartupsContainer = () => {
-    const startups = useStore($startups);
+
+type Props = {
+    startups: Data;
+    startupFilters: AllCategories;
+};
+
+const StartupsContainer = ({ startups, startupFilters }: Props) => {
     const searchString = useStore($searchString);
     const selectedCategory = useStore($selectedCategory);
-
-    useEffect(() => {
-        const getStartups = async () => {
-            try {
-                console.log("fetching contents");
-                const startups = await getCollection("startups");
-                setStartups(startups.map((startup) => startup.data));
-            } catch (e) {
-                console.error((e as Error).message);
-            }
-        };
-        getStartups();
-    }, []);
 
     if (!startups) {
         return (
@@ -39,13 +29,14 @@ const StartupsContainer = () => {
         <section>
             <img src={HeroLogo.src} alt="Logo" className="size-72 shrink-0 mx-auto" />
             <h1 className="text-4xl font-bold tracking-tighter text-center my-4">Rail Startups</h1>
-            <p className="text-center text-pretty text-sm text-slate-800">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores, inventore.</p>
+            <p className="text-center text-pretty text-sm text-slate-800">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores, inventore.
+            </p>
             <div className="border-b border-teal-900/20 mx-auto w-2/3 my-6"></div>
             <div className="grid items-center gap-4">
-                <StartupsFilters />
+                <StartupsFilters startupFilters={startupFilters} />
                 <StartupsSearch />
             </div>
-
             <section className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
                 {startups
                     .filter((startup) =>

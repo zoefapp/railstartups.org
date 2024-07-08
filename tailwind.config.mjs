@@ -14,8 +14,8 @@ export default {
             },
             fontFamily: {
                 jost: ["Jost", "sans-serif"],
-            }
+            },
         },
     },
-    plugins: [],
+    plugins: [require("tailwindcss-animate")],
 };
