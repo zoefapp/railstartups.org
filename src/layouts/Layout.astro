@@ -1,51 +1,65 @@
 ---
 interface Props {
-	title: string;
+    title: string;
+    description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Astro description" />
+        <meta name="viewport" content="width=device-width" />
+
+        <!-- Favicons Start -->
+        <link type="image/png" sizes="16x16" rel="icon" href="/icons8-train-cloud-16.png" />
+        <link type="image/png" sizes="32x32" rel="icon" href="/icons8-train-cloud-32.png" />
+        <link type="image/png" sizes="96x96" rel="icon" href="/icons8-train-cloud-96.png" />
+        <link rel="icon" type="image/png" sizes="72x72" href="/icons8-train-cloud-72.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/icons8-train-cloud-96.png" />
+        <link
+            rel="apple-touch-icon"
+            type="image/png"
+            sizes="57x57"
+            href="/icons8-train-cloud-57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            type="image/png"
+            sizes="60x60"
+            href="/icons8-train-cloud-60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            type="image/png"
+            sizes="72x72"
+            href="/icons8-train-cloud-72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            type="image/png"
+            sizes="76x76"
+            href="/icons8-train-cloud-76.png"
+        />
+        <meta name="msapplication-square70x70logo" content="/icons8-train-cloud-70.png" />
+        <meta name="msapplication-TileColor" content="#C0FFEE" />
+        <!-- Favicons End -->
+        <!-- Font Start -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Font End -->
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+    </head>
+    <body class="bg-background font-jost bg-cover bg-no-repeat bg-top p-4 md:py-12">
+        <slot />
+    </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>
