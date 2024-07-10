@@ -2,7 +2,7 @@
 companyName: Zoef.app
 country: Netherlands
 shortDescription: delay compensations
-logo: ../../assets/startups/zoefapp.png
+logo: ../../assets/startups/zoefapp.jpeg
 website: https://zoef.app
 categories: 
  - customer service
