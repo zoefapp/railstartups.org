@@ -2,7 +2,7 @@
 companyName: Choo Choo
 country: Netherlands
 shortDescription: easy train travel
-logo: ../../assets/startups/zoefapp.jpeg
+logo: ../../assets/startups/choochoo.svg
 website: https://choo-choo.eu
 categories: 
  - customer service
