@@ -1,0 +1,43 @@
+---
+interface Props {
+    formId: string;
+    width: string;
+    height: string;
+}
+
+let formUrl = `https://tally.so/embed/${Astro.props.formId}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`;
+---
+
+<iframe
+    data-tally-src={formUrl}
+    loading="lazy"
+    width={Astro.props.width}
+    height={Astro.props.height}
+    frameborder="0"
+    marginheight="0"
+    marginwidth="0"></iframe>
+<script is:inline>
+    let params = ''
+    new URLSearchParams(window.location.search).forEach((value, key) => {
+        if (key.startsWith('t_')) {
+            params += `&${key.substring(2)}=${value}`;
+        }
+    });
+    document.querySelectorAll('iframe[data-tally-src]:not([src])').forEach((iframe) => {
+        iframe.dataset.tallySrc = iframe.dataset.tallySrc + params
+    })
+    var d = document,
+        w = "https://tally.so/widgets/embed.js",
+        v = function () {
+            "undefined" != typeof Tally
+                ? Tally.loadEmbeds()
+                : d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function (e) {
+                      e.src = e.dataset.tallySrc;
+                  });
+        };
+    if ("undefined" != typeof Tally) v();
+    else if (d.querySelector('script[src="' + w + '"]') == null) {
+        var s = d.createElement("script");
+        (s.src = w), (s.onload = v), (s.onerror = v), d.body.appendChild(s);
+    }
+</script>

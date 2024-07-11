@@ -13,7 +13,7 @@ export default {
                 background: "url('/background.webp')",
             },
             fontFamily: {
-                jost: ["Jost", "sans-serif"],
+                roboto: ["Roboto", "sans-serif"],
             },
         },
     },

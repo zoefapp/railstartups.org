@@ -12,7 +12,7 @@ const StartupCard = ({ startup }: Props) => {
             <div className="flex gap-4">
                 <img src={startup.logo.src} alt={startup.companyName} width="100" height="100" />
                 <div>
-                    <h2 className="text-2xl tracking-tighter font-bold">{startup.companyName}</h2>
+                    <h2 className="text-2xl font-bold">{startup.companyName}</h2>
                     <p>{startup.country}</p>
                 </div>
             </div>
