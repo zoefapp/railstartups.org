@@ -1,6 +1,6 @@
 ---
 companyName: ToTravelTo
-country: United Kingdom
+country: Europe
 shortDescription: ticketing
 website: https://totravelto.com
 logo: ../../assets/startups/totravelto.png
