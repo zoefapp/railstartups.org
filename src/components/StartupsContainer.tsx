@@ -30,7 +30,7 @@ const StartupsContainer = ({ startups, startupFilters }: Props) => {
             <img src={HeroLogo.src} alt="Logo" className="size-72 shrink-0 mx-auto" />
             <h1 className="text-4xl font-bold tracking-tighter text-center my-4">Rail Startups</h1>
             <p className="text-center text-pretty text-sm text-slate-800">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores, inventore.
+                A curated list of rail startups. Not listed? <a className="text-teal-600" href="https://tally.so/r/wL0XN1" target="_blank">Register your startup here.</a>
             </p>
             <div className="border-b border-teal-900/20 mx-auto w-2/3 my-6"></div>
             <div className="grid items-center gap-4">
