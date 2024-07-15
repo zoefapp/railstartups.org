@@ -13,7 +13,7 @@ const startupsCollection = defineCollection({
     //     message: "Cover image must be at least 1080 pixels wide!",
     //   }),
       categories: z.array(
-        z.enum(["customer service", "tickets", "b2b", "b2c", "other", "community", "lobby", "content", "data"])
+        z.enum(["customer service", "tickets", "b2b", "b2c", "other", "community", "lobby", "content", "data", "planner"])
       ),
     }),
 });
