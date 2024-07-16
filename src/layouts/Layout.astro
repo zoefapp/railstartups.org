@@ -84,11 +84,14 @@ const { title, description } = Astro.props;
     <!-- Font End -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta property="og:title" content={title}>
-    <meta property="og:description" content={description}}>
-    <meta property="og:image" content="/public/background.webp">
-    <meta property="og:url" content="https://railstartups.org">
-    <meta property="og:type" content="website">
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} } />
+    <meta property="og:image" content="/public/background.webp" />
+    <meta property="og:url" content="https://railstartups.org" />
+    <meta property="og:type" content="website" />
+
+    <script defer src="https://app.tinyanalytics.io/pixel/XoiV8LEQM28GFmSm"
+    ></script>
   </head>
   <body
     class="bg-background font-roboto bg-cover bg-no-repeat bg-top p-4 md:py-12"
