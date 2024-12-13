@@ -9,4 +9,5 @@ categories:
  - tickets
  - b2b
  - b2c
+ - tour operator
 ---
