@@ -5,7 +5,7 @@ shortDescription: Alpago is a C2C marketplace that allows travelers to securely 
 website: https://alpago.app
 logo: ../../assets/startups/alpago.png
 categories: 
- - b2c
+ - customer service
  - tickets
 ---
 
