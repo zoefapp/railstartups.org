@@ -39,7 +39,7 @@ const StartupsContainer = ({ startups, startupFilters }: Props) => {
             <p className="text-center pt-4">
                 <a
                     target="_blank"
-                    href="https://tally.so/r/wL0XN1"
+                    href="https://tally.so/r/3NgAjb"
                     className="bg-blue-500 text-white font-bold py-2 px-4 rounded-full shadow-lg inline-block mx-auto"
                 >
                     <span>Add my startup</span>
