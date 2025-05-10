@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import StartupsContainer from "../components/StartupsContainer";
 import { getCollection } from "astro:content";
-import AddButton from "../components/AddButton.astro";
 import GithubRibbon from "../components/GithubRibbon.astro";
 
 const startupsCollection = await getCollection("startups");
@@ -25,5 +24,4 @@ const startupFilters = startups
   </main>
 
   <GithubRibbon />
-  <AddButton />
 </Layout>
