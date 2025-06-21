@@ -1,0 +1,149 @@
+---
+import HeroLogo from "../../src/assets/hero-logo.webp";
+import type { CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+    startups: CollectionEntry<"startups">["data"][];
+    startupFilters: string[];
+}
+
+const { startups, startupFilters } = Astro.props as Props;
+---
+
+<section>
+    <section class="container">
+        <img src={HeroLogo.src} alt="Logo" class="size-72 shrink-0 mx-auto" />
+        <h1 class="text-4xl font-bold tracking-tighter text-center my-4">Welcome to the Rail Startups community</h1>
+        <p class="text-left text-pretty text-sm text-slate-800">
+            Across Europe, a new wave of entrepreneurs is reimagining the future of train travel. We believe <b>rail can be bigger, bolder, simpler—and yes, even sexier</b>.
+            From making train journeys more accessible to designing innovative services that attract more people to sustainable travel, we are full of good ideas. <b>Our challenge is to make our ideas and businesses viable within the current ecosystem of railway companies and major industry players.</b>
+        </p>
+        <p class="text-left text-pretty text-sm text-slate-800 pt-4">
+            That's why we're here—to <b>connect, support, and empower each other</b>. Together, we can take up more space, amplify our impact, and help rail take its rightful place at the heart of European mobility.
+        </p>
+        <p class="text-center pt-4">
+            <a
+                target="_blank"
+                href="https://tally.so/r/3NgAjb"
+                class="bg-blue-500 text-white font-bold py-2 px-4 rounded-full shadow-lg inline-block mx-auto"
+            >
+                <span>Add my startup</span>
+            </a>
+        </p>
+        <div class="border-b border-teal-900/20 mx-auto w-2/3 my-6"></div>
+        <h2 class="text-3xl font-bold tracking-tighter text-center my-4">Our members</h2>
+        <div class="grid items-center gap-4">
+            <!-- Filters -->
+            <div class="flex flex-wrap items-center justify-center gap-2 text-black" id="startup-filters">
+                <button
+                    data-filter="all"
+                    class="bg-teal-300 border border-teal-500 text-xs uppercase rounded-sm px-4 py-1 transition-all hover:bg-teal-300 active:translate-y-0.5"
+                >
+                    all
+                </button>
+                {startupFilters.map((category) => (
+                    <button
+                        key={category}
+                        data-filter={category}
+                        class="bg-teal-200 hover:bg-teal-300 border-transparent px-4 tracking-wider py-1 text-xs rounded-sm border uppercase transition-all active:translate-y-0.5"
+                    >
+                        {category}
+                    </button>
+                ))}
+            </div>
+            
+            <!-- Search -->
+            <div class="bg-white flex items-center w-1/2 mt-2 mb-8 mx-auto h-10 rounded-md overflow-clip border border-teal-800">
+                <Icon name="material-symbols:search" class="bg-teal-800 h-full w-10 p-2 text-white" />
+                <input
+                    type="text"
+                    placeholder="Search"
+                    id="startup-search"
+                    class="group px-2 h-10 w-full focus-within:outline-none"
+                />
+            </div>
+        </div>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4" id="startups-grid">
+        {startups.map((startup) => (
+            <div
+                class="startup-card"
+                data-name={startup.companyName.toLowerCase()}
+                data-categories={startup.categories.join(',')}
+            >
+                <div class="text-white animate-in fade-in duration-300 bg-gradient-to-r from-teal-600 to-teal-400 rounded-md p-4 overflow-hidden border border-teal-500 hover:border-teal-400 hover:bg-gradient-to-r hover:from-teal-500 hover:to-teal-300 transition-colors">
+                    <a href={startup.website} target="_blank">
+                        <div class="flex gap-4">
+                            <div class="max-h-24 max-w-24 flex-shrink-0">
+                                {startup.logo && (
+                                    <img 
+                                        src={startup.logo.src} 
+                                        alt={startup.companyName} 
+                                        class="max-h-24 max-w-24"
+                                    />
+                                )}
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold">{startup.companyName}</h2>
+                                <p><span class="inline-block w-4 h-4 mr-1">📍</span> {startup.country}</p>
+                                <p><i>{startup.shortDescription}</i></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        ))}
+    </section>
+</section>
+
+<script>
+    let currentFilter = 'all';
+    let currentSearch = '';
+
+    function filterStartups() {
+        const cards = document.querySelectorAll('.startup-card');
+        
+        cards.forEach(card => {
+            const name = card.getAttribute('data-name') || '';
+            const categories = card.getAttribute('data-categories') || '';
+            
+            const matchesSearch = name.includes(currentSearch.toLowerCase());
+            const matchesFilter = currentFilter === 'all' || categories.includes(currentFilter);
+            
+            if (matchesSearch && matchesFilter) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    // Search functionality
+    const searchInput = document.getElementById('startup-search');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            currentSearch = e.target.value;
+            filterStartups();
+        });
+    }
+
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('#startup-filters button');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active styles from all buttons
+            filterButtons.forEach(btn => {
+                btn.className = 'bg-teal-200 hover:bg-teal-300 border-transparent px-4 tracking-wider py-1 text-xs rounded-sm border uppercase transition-all active:translate-y-0.5';
+            });
+            
+            // Add active styles to clicked button
+            button.className = 'bg-teal-300 border border-teal-500 px-4 tracking-wider py-1 text-xs rounded-sm uppercase transition-all active:translate-y-0.5';
+            
+            currentFilter = button.getAttribute('data-filter') || 'all';
+            filterStartups();
+        });
+    });
+</script>
+
