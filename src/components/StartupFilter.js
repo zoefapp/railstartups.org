@@ -2,12 +2,33 @@ class StartupFilter {
     constructor() {
         this.currentFilter = 'all';
         this.currentSearch = '';
+        this.originalHeight = null;
         this.init();
     }
 
     init() {
         this.bindSearchEvents();
         this.bindFilterEvents();
+        this.captureOriginalHeight();
+        this.animateCardsOnLoad();
+    }
+
+    animateCardsOnLoad() {
+        const cards = document.querySelectorAll('.startup-card');
+        cards.forEach((card, index) => {
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 100); // 100ms delay between each card
+        });
+    }
+
+    captureOriginalHeight() {
+        const grid = document.getElementById('startups-grid');
+        if (grid) {
+            this.originalHeight = grid.offsetHeight;
+            grid.style.minHeight = this.originalHeight + 'px';
+        }
     }
 
     bindSearchEvents() {
@@ -62,14 +83,20 @@ class StartupFilter {
     }
 
     showCard(card) {
-        card.style.opacity = '0';
-        card.style.transform = 'scale(0.8)';
         card.style.display = 'block';
         
-        card.offsetHeight;
+        // Reset to original height when showing cards
+        const grid = document.getElementById('startups-grid');
+        if (grid && this.originalHeight) {
+            grid.style.minHeight = this.originalHeight + 'px';
+            grid.style.transition = '';
+        }
         
-        card.style.opacity = '1';
-        card.style.transform = 'scale(1)';
+        // Animate card in with slight delay
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0) scale(1)';
+        }, 50);
     }
 
     hideCard(card) {
@@ -79,8 +106,20 @@ class StartupFilter {
         setTimeout(() => {
             if (card.style.opacity === '0') {
                 card.style.display = 'none';
+                this.adjustGridHeight();
             }
         }, 500);
+    }
+
+    adjustGridHeight() {
+        const grid = document.getElementById('startups-grid');
+        if (grid) {
+            // Allow height to adjust to new content after cards are hidden
+            setTimeout(() => {
+                grid.style.minHeight = 'auto';
+                grid.style.transition = 'min-height 0.3s ease-in-out';
+            }, 100);
+        }
     }
 }
 
