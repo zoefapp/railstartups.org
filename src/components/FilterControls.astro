@@ -1,0 +1,41 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+    startupFilters: string[];
+}
+
+const { startupFilters } = Astro.props as Props;
+---
+
+<div class="grid items-center gap-4">
+    <!-- Filters -->
+    <div class="flex flex-wrap items-center justify-center gap-2 text-black" id="startup-filters">
+        <button
+            data-filter="all"
+            class="bg-teal-300 border border-teal-500 text-xs uppercase rounded-sm px-4 py-1 transition-all hover:bg-teal-300 active:translate-y-0.5"
+        >
+            all
+        </button>
+        {startupFilters.map((category) => (
+            <button
+                key={category}
+                data-filter={category}
+                class="bg-teal-200 hover:bg-teal-300 border-transparent px-4 tracking-wider py-1 text-xs rounded-sm border uppercase transition-all active:translate-y-0.5"
+            >
+                {category}
+            </button>
+        ))}
+    </div>
+    
+    <!-- Search -->
+    <div class="bg-white flex items-center w-1/2 mt-2 mb-8 mx-auto h-10 rounded-md overflow-clip border border-teal-800">
+        <Icon name="material-symbols:search" class="bg-teal-800 h-full w-10 p-2 text-white" />
+        <input
+            type="text"
+            placeholder="Search"
+            id="startup-search"
+            class="group px-2 h-10 w-full focus-within:outline-none"
+        />
+    </div>
+</div>
