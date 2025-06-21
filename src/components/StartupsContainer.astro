@@ -1,0 +1,28 @@
+---
+import HeroSection from "./HeroSection.astro";
+import FilterControls from "./FilterControls.astro";
+import StartupCard from "./StartupCard.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+    startups: CollectionEntry<"startups">["data"][];
+    startupFilters: string[];
+}
+
+const { startups, startupFilters } = Astro.props as Props;
+---
+
+<section>
+    <HeroSection />
+    
+    <FilterControls startupFilters={startupFilters} />
+
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4" id="startups-grid" style="order: 1;">
+        {startups.sort((a, b) => a.companyName.localeCompare(b.companyName)).map((startup) => (
+            <StartupCard startup={startup} />
+        ))}
+    </section>
+</section>
+
+<script src="./StartupFilter.js"></script>
+

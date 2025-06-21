@@ -3,7 +3,7 @@ companyName: Cartotrain
 country: France
 shortDescription: Foldable paper maps for rail travel
 website: https://cartotrain.fr/
-logo: ../../assets/startups/cartotrain.svg
+logo: ../../assets/startups/cartotrain1.svg
 categories: 
  - content
 ---
