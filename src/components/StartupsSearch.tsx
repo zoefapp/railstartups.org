@@ -1,6 +1,8 @@
-import { setSearchString } from "../store/startups";
+import { setSearchString, $searchString } from "../store/startups";
+import { useStore } from "@nanostores/react";
 import { Search } from "lucide-react";
 const StartupsSearch = () => {
+    const searchString = useStore($searchString);
 
     const onChange = (e: any) => {
         setSearchString(e.target.value);
@@ -12,6 +14,7 @@ const StartupsSearch = () => {
             <input
                 type="text"
                 placeholder="Search"
+                value={searchString}
                 onChange={onChange}
                 className="group px-2 h-10 w-full focus-within:outline-none"
             />
