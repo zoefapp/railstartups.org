@@ -19,7 +19,6 @@ const { startupFilters } = Astro.props as Props;
         </button>
         {startupFilters.map((category) => (
             <button
-                key={category}
                 data-filter={category}
                 class="bg-teal-200 hover:bg-teal-300 border-transparent px-4 tracking-wider py-1 text-xs rounded-sm border uppercase transition-all active:translate-y-0.5"
             >
