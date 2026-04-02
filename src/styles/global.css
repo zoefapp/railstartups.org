@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --font-roboto: "Roboto", sans-serif;
+  --container-2xl: 1200px;
+}
+
+@utility bg-background {
+  background-image: url("/background.webp");
+}
