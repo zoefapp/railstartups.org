@@ -17,13 +17,13 @@ const renderedHtml = rendered?.html;
 ---
 
 <Layout title={`${data.companyName} — Railstartups.org`} description={data.shortDescription}>
-    <main class="bg-teal-100/20 border border-teal-600/20 backdrop-blur-sm min-h-screen rounded-md p-4 md:p-8">
+    <main class="bg-slate-100/90 border border-slate-300 backdrop-blur-sm min-h-screen rounded-lg p-4 md:p-8">
         <div class="container max-w-3xl mx-auto">
-            <a href="/" class="inline-flex items-center gap-1 text-teal-700 hover:text-teal-900 text-sm mb-6">
+            <a href="/" class="inline-flex items-center gap-1 text-teal-600 hover:text-teal-700 text-sm mb-6">
                 &larr; Back to all startups
             </a>
 
-            <div class="startup-detail bg-white rounded-lg border border-slate-200 shadow-sm p-6 md:p-8">
+            <div class="startup-detail bg-white rounded-lg border border-slate-200/80 shadow-sm p-6 md:p-8">
                 <div class="flex items-start gap-6 mb-6">
                     <div class="w-24 h-24 flex-shrink-0">
                         {data.logo && (
@@ -45,7 +45,7 @@ const renderedHtml = rendered?.html;
 
                 <div class="flex flex-wrap gap-2 mb-6">
                     {data.categories.map((cat: string) => (
-                        <span class="bg-teal-100 text-teal-800 text-xs font-medium px-2.5 py-0.5 rounded-full uppercase tracking-wide">
+                        <span class="bg-teal-50 text-teal-600 text-xs font-medium px-2.5 py-0.5 rounded-full uppercase tracking-wide">
                             {cat}
                         </span>
                     ))}

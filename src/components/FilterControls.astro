@@ -10,31 +10,31 @@ const { startupFilters } = Astro.props as Props;
 
 <div class="grid items-center gap-4">
     <!-- Filters -->
-    <div class="flex flex-wrap items-center justify-center gap-2 text-black" id="startup-filters">
+    <div class="flex flex-wrap items-center justify-center gap-2" id="startup-filters">
         <button
             data-filter="all"
-            class="bg-teal-300 border border-teal-500 text-xs uppercase rounded-sm px-4 py-1 transition-all hover:bg-teal-300 active:translate-y-0.5"
+            class="bg-teal-600 text-white border border-teal-600 text-xs uppercase rounded-md px-4 py-1.5 transition-all hover:bg-teal-700 active:translate-y-0.5 cursor-pointer"
         >
             all
         </button>
         {startupFilters.map((category) => (
             <button
                 data-filter={category}
-                class="bg-teal-200 hover:bg-teal-300 border-transparent px-4 tracking-wider py-1 text-xs rounded-sm border uppercase transition-all active:translate-y-0.5"
+                class="bg-slate-100 text-slate-600 border border-slate-200 px-4 tracking-wider py-1.5 text-xs rounded-md uppercase transition-all hover:bg-slate-200 active:translate-y-0.5 cursor-pointer"
             >
                 {category}
             </button>
         ))}
     </div>
-    
+
     <!-- Search -->
-    <div class="bg-white flex items-center w-1/2 mt-2 mb-8 mx-auto h-10 rounded-md overflow-clip border border-teal-800">
-        <Icon name="material-symbols:search" class="bg-teal-800 h-full w-10 p-2 text-white" />
+    <div class="bg-white flex items-center w-1/2 mt-2 mb-8 mx-auto h-10 rounded-lg overflow-clip border border-slate-300 shadow-sm">
+        <Icon name="material-symbols:search" class="bg-teal-600 h-full w-10 p-2 text-white" />
         <input
             type="text"
             placeholder="Search"
             id="startup-search"
-            class="group px-2 h-10 w-full focus-within:outline-none"
+            class="group px-3 h-10 w-full bg-white focus-within:outline-none"
         />
     </div>
 </div>

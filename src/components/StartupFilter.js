@@ -50,8 +50,8 @@ class StartupFilter {
 
     setActiveFilter(activeButton) {
         const filterButtons = document.querySelectorAll('#startup-filters button');
-        const inactiveClass = 'bg-teal-200 hover:bg-teal-300 border-transparent px-4 tracking-wider py-1 text-xs rounded-sm border uppercase transition-all active:translate-y-0.5';
-        const activeClass = 'bg-teal-300 border border-teal-500 px-4 tracking-wider py-1 text-xs rounded-sm uppercase transition-all active:translate-y-0.5';
+        const inactiveClass = 'bg-slate-100 text-slate-600 border border-slate-200 px-4 tracking-wider py-1.5 text-xs rounded-md uppercase transition-all hover:bg-slate-200 active:translate-y-0.5 cursor-pointer';
+        const activeClass = 'bg-teal-600 text-white border border-teal-600 text-xs uppercase rounded-md px-4 tracking-wider py-1.5 transition-all hover:bg-teal-700 active:translate-y-0.5 cursor-pointer';
         
         filterButtons.forEach(btn => {
             btn.className = inactiveClass;
