@@ -11,6 +11,9 @@ All notable changes to this project will be documented in this file.
 - htmx-powered dialog for viewing startup details without losing scroll position
 - Prev/next navigation in dialog (buttons + arrow keys), respects active filter
 
+### Fixed
+- GitHub Actions deploy workflow: upgraded Node.js from 20 to 22 (required by Astro 6)
+
 ### Changed
 - Redesigned startup cards: cleaner white background, compact layout, category tags
 - Grid now shows 3 columns on large screens (up from 2)
