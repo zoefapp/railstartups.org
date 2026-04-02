@@ -36,6 +36,9 @@ All notable changes to this project will be documented in this file.
 - sharp 0.33 → 0.34, @astrojs/check 0.9.4 → 0.9.8, TypeScript 5.8 → 5.9
 - Removed deprecated @astrojs/tailwind and tailwindcss-animate
 
+### Fixed
+- Dialog is full-screen on mobile with fixed prev/next nav bar at bottom
+
 ### Removed
 - Zoef.app from startup directory
 - "Fork me on GitHub" ribbon
