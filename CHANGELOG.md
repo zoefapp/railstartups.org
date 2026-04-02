@@ -15,6 +15,8 @@ All notable changes to this project will be documented in this file.
 - Redesigned startup cards: cleaner white background, compact layout, category tags
 - Grid now shows 3 columns on large screens (up from 2)
 - Widened container max-width from 800px to 1200px
+- Unified color scheme: slate + teal-600 palette with layered contrast (photo > slate container > white cards)
+- CTA button now teal-600 (was blue-500), filter buttons redesigned with clear active/inactive states
 
 ### Fixed
 - Excessive vertical space in startup grid caused by minHeight lock in filter script
