@@ -30,6 +30,12 @@ All notable changes to this project will be documented in this file.
 - Descriptive alt text on all images, aria-hidden on decorative emoji
 - Title attribute on Tally iframe
 
+### Upgraded
+- Astro 5.10 → 6.1.3
+- Tailwind CSS 3.4 → 4.2.2 (migrated to CSS-based config with @tailwindcss/vite)
+- sharp 0.33 → 0.34, @astrojs/check 0.9.4 → 0.9.8, TypeScript 5.8 → 5.9
+- Removed deprecated @astrojs/tailwind and tailwindcss-animate
+
 ### Removed
 - Zoef.app from startup directory
 - "Fork me on GitHub" ribbon
