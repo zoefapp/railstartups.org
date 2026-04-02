@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Removed
+- En Movement startup
+
 ### Added
 - GoVolta startup (Netherlands) - affordable European daytime trains and city trips
 - `.tool-versions` file for nodejs and pnpm version management
