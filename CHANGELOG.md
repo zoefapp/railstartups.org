@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - `.tool-versions` file for nodejs and pnpm version management
 - Individual startup detail pages (`/startups/[id]`) with full descriptions
 - htmx-powered dialog for viewing startup details without losing scroll position
+- Prev/next navigation in dialog (buttons + arrow keys), respects active filter
 
 ### Changed
 - Redesigned startup cards: cleaner white background, compact layout, category tags
