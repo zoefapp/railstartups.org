@@ -18,6 +18,18 @@ All notable changes to this project will be documented in this file.
 - Unified color scheme: slate + teal-600 palette with layered contrast (photo > slate container > white cards)
 - CTA button now teal-600 (was blue-500), filter buttons redesigned with clear active/inactive states
 
+### Accessibility
+- Skip-to-content link for keyboard navigation
+- Cards are now keyboard-accessible buttons with focus rings
+- Dialog has proper ARIA attributes and focus management
+- Search input has associated label, filter buttons have aria-labels and aria-pressed
+- Live region announces filter result count to screen readers
+- Respects prefers-reduced-motion for all animations
+- Fixed color contrast on category tags, close button, and country text
+- Proper heading hierarchy (h3 for card titles)
+- Descriptive alt text on all images, aria-hidden on decorative emoji
+- Title attribute on Tally iframe
+
 ### Fixed
 - Excessive vertical space in startup grid caused by minHeight lock in filter script
 
