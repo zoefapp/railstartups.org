@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 import GithubRibbon from "../components/GithubRibbon.astro";
 
 const startupsCollection = await getCollection("startups");
-const startups = startupsCollection.map((startup) => startup.data);
+const startups = startupsCollection.map((startup) => ({ ...startup.data, id: startup.id }));
 const startupFilters = startups
   .map((startup) => startup.categories)
   .flat()
@@ -22,6 +22,37 @@ const startupFilters = startups
       startupFilters={startupFilters}
     />
   </main>
+
+  <dialog
+    id="startup-dialog"
+    class="w-full max-w-3xl rounded-lg p-0 backdrop:bg-black/50 backdrop:backdrop-blur-sm"
+  >
+    <div class="relative">
+      <button
+        id="startup-dialog-close"
+        class="absolute top-4 right-4 z-10 text-slate-400 hover:text-slate-600 text-2xl leading-none"
+        aria-label="Close"
+      >&times;</button>
+      <div id="startup-dialog-content"></div>
+    </div>
+  </dialog>
+
+  <script>
+    const dialog = document.getElementById('startup-dialog') as HTMLDialogElement;
+    const closeBtn = document.getElementById('startup-dialog-close');
+
+    document.body.addEventListener('htmx:afterSwap', (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      if (detail.target?.id === 'startup-dialog-content') {
+        dialog?.showModal();
+      }
+    });
+
+    closeBtn?.addEventListener('click', () => dialog?.close());
+    dialog?.addEventListener('click', (e) => {
+      if (e.target === dialog) dialog.close();
+    });
+  </script>
 
   <GithubRibbon />
 </Layout>

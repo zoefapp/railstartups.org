@@ -6,7 +6,7 @@ export default {
             container: {
                 center: true,
                 screens: {
-                    "2xl": "800px",
+                    "2xl": "1200px",
                 },
             },
             backgroundImage: {

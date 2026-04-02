@@ -1,0 +1,72 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import GithubRibbon from "../../components/GithubRibbon.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+    const startups = await getCollection("startups");
+    return startups.map((startup) => ({
+        params: { id: startup.id },
+        props: { startup },
+    }));
+}
+
+const { startup } = Astro.props;
+const { data, rendered } = startup;
+const renderedHtml = rendered?.html;
+---
+
+<Layout title={`${data.companyName} — Railstartups.org`} description={data.shortDescription}>
+    <main class="bg-teal-100/20 border border-teal-600/20 backdrop-blur-sm min-h-screen rounded-md p-4 md:p-8">
+        <div class="container max-w-3xl mx-auto">
+            <a href="/" class="inline-flex items-center gap-1 text-teal-700 hover:text-teal-900 text-sm mb-6">
+                &larr; Back to all startups
+            </a>
+
+            <div class="startup-detail bg-white rounded-lg border border-slate-200 shadow-sm p-6 md:p-8">
+                <div class="flex items-start gap-6 mb-6">
+                    <div class="w-24 h-24 flex-shrink-0">
+                        {data.logo && (
+                            <img
+                                src={data.logo.src}
+                                alt={data.companyName}
+                                class="w-24 h-24 object-contain rounded-md"
+                            />
+                        )}
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-bold tracking-tight text-slate-900">{data.companyName}</h1>
+                        <p class="text-slate-500 mt-1">
+                            <span class="inline-block mr-1">📍</span>{data.country}
+                        </p>
+                        <p class="text-slate-600 mt-2 italic">{data.shortDescription}</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2 mb-6">
+                    {data.categories.map((cat: string) => (
+                        <span class="bg-teal-100 text-teal-800 text-xs font-medium px-2.5 py-0.5 rounded-full uppercase tracking-wide">
+                            {cat}
+                        </span>
+                    ))}
+                </div>
+
+                {renderedHtml && (
+                    <div class="prose prose-slate max-w-none border-t border-slate-100 pt-6" set:html={renderedHtml} />
+                )}
+
+                <div class="border-t border-slate-100 pt-6 mt-6">
+                    <a
+                        href={data.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-medium py-2 px-5 rounded-lg transition-colors"
+                    >
+                        Visit website &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <GithubRibbon />
+</Layout>

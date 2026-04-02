@@ -24,11 +24,7 @@ class StartupFilter {
     }
 
     captureOriginalHeight() {
-        const grid = document.getElementById('startups-grid');
-        if (grid) {
-            this.originalHeight = grid.offsetHeight;
-            grid.style.minHeight = this.originalHeight + 'px';
-        }
+        // No longer locking minHeight — let the grid size naturally
     }
 
     bindSearchEvents() {
@@ -85,13 +81,6 @@ class StartupFilter {
     showCard(card) {
         card.style.display = 'block';
         
-        // Reset to original height when showing cards
-        const grid = document.getElementById('startups-grid');
-        if (grid && this.originalHeight) {
-            grid.style.minHeight = this.originalHeight + 'px';
-            grid.style.transition = '';
-        }
-        
         // Animate card in with slight delay
         setTimeout(() => {
             card.style.opacity = '1';
@@ -112,14 +101,7 @@ class StartupFilter {
     }
 
     adjustGridHeight() {
-        const grid = document.getElementById('startups-grid');
-        if (grid) {
-            // Allow height to adjust to new content after cards are hidden
-            setTimeout(() => {
-                grid.style.minHeight = 'auto';
-                grid.style.transition = 'min-height 0.3s ease-in-out';
-            }, 100);
-        }
+        // Grid height adjusts naturally now
     }
 }
 

@@ -3,9 +3,10 @@ import type { CollectionEntry } from "astro:content";
 
 interface Props {
     startup: CollectionEntry<"startups">["data"];
+    id: string;
 }
 
-const { startup } = Astro.props as Props;
+const { startup, id } = Astro.props;
 ---
 
 <div
@@ -13,24 +14,34 @@ const { startup } = Astro.props as Props;
     data-name={startup.companyName.toLowerCase()}
     data-categories={startup.categories.join(',')}
 >
-    <div class="text-white animate-in fade-in duration-300 bg-gradient-to-r from-teal-600 to-teal-400 rounded-md p-4 overflow-hidden border border-teal-500 hover:border-teal-400 hover:bg-gradient-to-r hover:from-teal-500 hover:to-teal-300 transition-colors">
-        <a href={startup.website} target="_blank">
-            <div class="flex gap-4">
-                <div class="max-h-24 max-w-24 flex-shrink-0">
-                    {startup.logo && (
-                        <img 
-                            src={startup.logo.src} 
-                            alt={startup.companyName} 
-                            class="max-h-24 max-w-24"
-                        />
-                    )}
-                </div>
-                <div>
-                    <h2 class="text-2xl font-bold">{startup.companyName}</h2>
-                    <p><span class="inline-block w-4 h-4 mr-1">📍</span> {startup.country}</p>
-                    <p><i>{startup.shortDescription}</i></p>
-                </div>
+    <div
+        class="h-full bg-white rounded-lg border border-slate-200 p-4 hover:border-teal-400 hover:shadow-md transition-all cursor-pointer"
+        hx-get={`/startups/${id}/`}
+        hx-target="#startup-dialog-content"
+        hx-select=".startup-detail"
+    >
+        <div class="flex gap-3">
+            <div class="w-16 h-16 flex-shrink-0">
+                {startup.logo && (
+                    <img
+                        src={startup.logo.src}
+                        alt={startup.companyName}
+                        class="w-16 h-16 object-contain rounded"
+                    />
+                )}
             </div>
-        </a>
+            <div class="min-w-0">
+                <h2 class="text-lg font-bold text-slate-900 truncate">{startup.companyName}</h2>
+                <p class="text-xs text-slate-500"><span class="inline-block mr-0.5">📍</span>{startup.country}</p>
+                <p class="text-sm text-slate-600 mt-1 line-clamp-2">{startup.shortDescription}</p>
+            </div>
+        </div>
+        <div class="flex flex-wrap gap-1 mt-3">
+            {startup.categories.map((cat: string) => (
+                <span class="bg-teal-50 text-teal-700 text-[10px] font-medium px-1.5 py-0.5 rounded-full uppercase tracking-wide">
+                    {cat}
+                </span>
+            ))}
+        </div>
     </div>
 </div>
