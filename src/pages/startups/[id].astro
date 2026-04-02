@@ -17,7 +17,7 @@ const renderedHtml = rendered?.html;
 ---
 
 <Layout title={`${data.companyName} — Railstartups.org`} description={data.shortDescription}>
-    <main class="bg-slate-100/90 border border-slate-300 backdrop-blur-sm min-h-screen rounded-lg p-4 md:p-8">
+    <main id="main-content" class="bg-slate-100/90 border border-slate-300 backdrop-blur-sm min-h-screen rounded-lg p-4 md:p-8">
         <div class="container max-w-3xl mx-auto">
             <a href="/" class="inline-flex items-center gap-1 text-teal-600 hover:text-teal-700 text-sm mb-6">
                 &larr; Back to all startups
@@ -29,15 +29,15 @@ const renderedHtml = rendered?.html;
                         {data.logo && (
                             <img
                                 src={data.logo.src}
-                                alt={data.companyName}
-                                class="w-24 h-24 object-contain rounded-md"
+                                alt={`${data.companyName} logo`}
+                            class="w-24 h-24 object-contain rounded-md"
                             />
                         )}
                     </div>
                     <div>
                         <h1 class="text-3xl font-bold tracking-tight text-slate-900">{data.companyName}</h1>
-                        <p class="text-slate-500 mt-1">
-                            <span class="inline-block mr-1">📍</span>{data.country}
+                        <p class="text-slate-600 mt-1">
+                            <span class="inline-block mr-1" aria-hidden="true">📍</span>{data.country}
                         </p>
                         <p class="text-slate-600 mt-2 italic">{data.shortDescription}</p>
                     </div>
@@ -45,7 +45,7 @@ const renderedHtml = rendered?.html;
 
                 <div class="flex flex-wrap gap-2 mb-6">
                     {data.categories.map((cat: string) => (
-                        <span class="bg-teal-50 text-teal-600 text-xs font-medium px-2.5 py-0.5 rounded-full uppercase tracking-wide">
+                        <span class="bg-teal-100 text-teal-700 text-xs font-medium px-2.5 py-0.5 rounded-full uppercase tracking-wide">
                             {cat}
                         </span>
                     ))}

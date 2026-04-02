@@ -10,17 +10,21 @@ const { startupFilters } = Astro.props as Props;
 
 <div class="grid items-center gap-4">
     <!-- Filters -->
-    <div class="flex flex-wrap items-center justify-center gap-2" id="startup-filters">
+    <div class="flex flex-wrap items-center justify-center gap-2" id="startup-filters" role="group" aria-label="Filter startups by category">
         <button
             data-filter="all"
-            class="bg-teal-600 text-white border border-teal-600 text-xs uppercase rounded-md px-4 py-1.5 transition-all hover:bg-teal-700 active:translate-y-0.5 cursor-pointer"
+            aria-label="Show all startups"
+            aria-pressed="true"
+            class="bg-teal-600 text-white border border-teal-600 text-xs uppercase rounded-md px-4 py-1.5 transition-all hover:bg-teal-700 active:translate-y-0.5 cursor-pointer focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2"
         >
             all
         </button>
         {startupFilters.map((category) => (
             <button
                 data-filter={category}
-                class="bg-slate-100 text-slate-600 border border-slate-200 px-4 tracking-wider py-1.5 text-xs rounded-md uppercase transition-all hover:bg-slate-200 active:translate-y-0.5 cursor-pointer"
+                aria-label={`Filter by ${category}`}
+                aria-pressed="false"
+                class="bg-slate-100 text-slate-600 border border-slate-200 px-4 tracking-wider py-1.5 text-xs rounded-md uppercase transition-all hover:bg-slate-200 active:translate-y-0.5 cursor-pointer focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2"
             >
                 {category}
             </button>
@@ -28,13 +32,17 @@ const { startupFilters } = Astro.props as Props;
     </div>
 
     <!-- Search -->
-    <div class="bg-white flex items-center w-1/2 mt-2 mb-8 mx-auto h-10 rounded-lg overflow-clip border border-slate-300 shadow-sm">
-        <Icon name="material-symbols:search" class="bg-teal-600 h-full w-10 p-2 text-white" />
+    <div class="bg-white flex items-center w-1/2 mt-2 mb-8 mx-auto h-10 rounded-lg overflow-clip border border-slate-300 shadow-sm focus-within:ring-2 focus-within:ring-teal-600 focus-within:ring-offset-2">
+        <Icon name="material-symbols:search" class="bg-teal-600 h-full w-10 p-2 text-white" aria-hidden="true" />
+        <label for="startup-search" class="sr-only">Search startups by name</label>
         <input
             type="text"
-            placeholder="Search"
+            placeholder="Search startups..."
             id="startup-search"
-            class="group px-3 h-10 w-full bg-white focus-within:outline-none"
+            class="px-3 h-10 w-full bg-white focus:outline-none"
         />
     </div>
+
+    <!-- Live region for filter announcements -->
+    <div id="filter-results-announcement" aria-live="polite" aria-atomic="true" class="sr-only"></div>
 </div>
