@@ -30,6 +30,9 @@ All notable changes to this project will be documented in this file.
 - Descriptive alt text on all images, aria-hidden on decorative emoji
 - Title attribute on Tally iframe
 
+### Removed
+- Zoef.app from startup directory
+
 ### Fixed
 - Excessive vertical space in startup grid caused by minHeight lock in filter script
 
