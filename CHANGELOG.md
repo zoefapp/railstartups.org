@@ -32,6 +32,7 @@ All notable changes to this project will be documented in this file.
 
 ### Removed
 - Zoef.app from startup directory
+- "Fork me on GitHub" ribbon
 
 ### Fixed
 - Excessive vertical space in startup grid caused by minHeight lock in filter script
