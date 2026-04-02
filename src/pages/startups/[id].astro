@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import GithubRibbon from "../../components/GithubRibbon.astro";
+
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -68,5 +68,5 @@ const renderedHtml = rendered?.html;
             </div>
         </div>
     </main>
-    <GithubRibbon />
+
 </Layout>

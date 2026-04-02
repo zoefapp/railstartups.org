@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import StartupsContainer from "../components/StartupsContainer.astro";
 import { getCollection } from "astro:content";
-import GithubRibbon from "../components/GithubRibbon.astro";
+
 
 const startupsCollection = await getCollection("startups");
 const startups = startupsCollection.map((startup) => ({ ...startup.data, id: startup.id }));
@@ -124,5 +124,5 @@ const startupFilters = startups
     });
   </script>
 
-  <GithubRibbon />
+
 </Layout>
