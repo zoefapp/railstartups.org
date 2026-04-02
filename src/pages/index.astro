@@ -28,25 +28,25 @@ const startupFilters = startups
     id="startup-dialog"
     aria-modal="true"
     aria-label="Startup details"
-    class="w-full max-w-3xl rounded-lg p-0 mx-auto my-auto backdrop:bg-black/50 backdrop:backdrop-blur-sm open:flex open:flex-col"
+    class="w-full h-full md:h-auto max-w-3xl md:rounded-lg p-0 m-0 md:mx-auto md:my-auto md:max-h-[85vh] backdrop:bg-black/50 backdrop:backdrop-blur-sm open:flex open:flex-col"
   >
-    <div class="relative">
+    <div class="flex-1 overflow-y-auto relative">
       <button
         id="startup-dialog-close"
-        class="absolute top-4 right-4 z-10 text-slate-500 hover:text-slate-700 text-2xl leading-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2 rounded"
+        class="sticky top-0 float-right z-10 text-slate-500 hover:text-slate-700 text-2xl leading-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2 rounded m-4"
         aria-label="Close dialog"
       >&times;</button>
       <div id="startup-dialog-content"></div>
-      <div class="flex justify-between items-center border-t border-slate-100 mx-6 md:mx-8 py-4">
-        <button
-          id="startup-dialog-prev"
-          class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-teal-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors disabled:text-slate-400 disabled:cursor-default disabled:hover:bg-slate-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2"
-        >&larr; Previous</button>
-        <button
-          id="startup-dialog-next"
-          class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-teal-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors disabled:text-slate-400 disabled:cursor-default disabled:hover:bg-slate-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2"
-        >Next &rarr;</button>
-      </div>
+    </div>
+    <div class="flex justify-between items-center border-t border-slate-200 bg-white px-6 md:px-8 py-3 md:rounded-b-lg shrink-0">
+      <button
+        id="startup-dialog-prev"
+        class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-teal-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors disabled:text-slate-400 disabled:cursor-default disabled:hover:bg-slate-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2"
+      >&larr; Previous</button>
+      <button
+        id="startup-dialog-next"
+        class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-teal-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors disabled:text-slate-400 disabled:cursor-default disabled:hover:bg-slate-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2"
+      >Next &rarr;</button>
     </div>
   </dialog>
 
