@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+- Oncron startup (Germany) - AI-powered train movement optimization for punctuality
+
 ### Removed
 - En Movement startup
 
