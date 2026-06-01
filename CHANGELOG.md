@@ -8,6 +8,10 @@ All notable changes to this project will be documented in this file.
 - HOURRAIL ! startup (France) - the go-to media for low-carbon travel
 - Oncron startup (Germany) - AI-powered train movement optimization for punctuality
 
+### Security
+- Updated dependencies, resolving all known vulnerabilities (was 9): astro 6.1.3→6.4.2, tailwindcss & @tailwindcss/vite 4.2.2→4.3.0, @astrojs/check 0.9.8→0.9.9, @iconify-json/material-symbols 1.2.64→1.2.75
+- Added pnpm override forcing `yaml` >=2.8.3 (transitive dev dep via @astrojs/check)
+
 ### Removed
 - En Movement startup
 
