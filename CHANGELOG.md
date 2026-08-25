@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ### Added
+- Train Doggo startup (Germany) - making train journeys with dogs easier to plan
 - Mollow startup (France) - media platform promoting slow travel across Europe
 - HOURRAIL ! startup (France) - the go-to media for low-carbon travel
 - Oncron startup (Germany) - AI-powered train movement optimization for punctuality
