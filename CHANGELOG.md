@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ### Added
+- Train Complet startup (Switzerland) - concierge service for finding tickets on fully booked trains
 - Train Doggo startup (Germany) - making train journeys with dogs easier to plan
 - Mollow startup (France) - media platform promoting slow travel across Europe
 - HOURRAIL ! startup (France) - the go-to media for low-carbon travel
